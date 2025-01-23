@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  go-app:
+    working_dir: /go-app-dir
+    build: ./golang
+    volumes:
+      - ./golang:/go-app-dir
+    ports:
+      - "6060:8080"
+    environment:
+      - GO_ENV=development
+      # - GO_ENV=production
