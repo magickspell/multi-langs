@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	const numStr string = "321"
+	const numStr string = "123"
 
 	http.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Hello, World! "+numStr)

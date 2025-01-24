@@ -1,6 +1,24 @@
 version: "3.9"
 
 services:
+
+  postgres:
+#  postgres:
+    image: postgres:16-alpine
+    hostname: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_DB: "java_db"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+    ports:
+      - "8432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+
+
   go-app:
     working_dir: /go-app-dir
     build: ./golang
@@ -11,3 +29,24 @@ services:
     environment:
       - GO_ENV=development
       # - GO_ENV=production
+
+
+
+  java-app:
+    build:
+      context: ./java
+      dockerfile: Dockerfile
+    volumes:
+      - ./java:/java-app-dir
+      - ./java/.m2:/root/.m2
+    working_dir: /java-app-dir
+    command: sh run.sh
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/java_db
+    ports:
+      - 6080:8080
+      - 35729:35729
+      - 5005:5005
+
+volumes:
+  postgres_data:

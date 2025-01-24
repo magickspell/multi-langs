@@ -1,0 +1,27 @@
+1) в джаве java файл mvnw должен иметь все права чтобы изнутри контейнера программа его прочитала
+$ chmod +777 mvnw
+
+2) для джавы java на убунте должна быть установлена сама джава (проблема сохранения с удаленем нужных строк)
+$ sudo apt install default-jre -y
+
+$ java -version
+выводит версию:
+openjdk version "21.0.5" 2024-10-15
+OpenJDK Runtime Environment (build 21.0.5+11-Ubuntu-1ubuntu124.04)
+OpenJDK 64-Bit Server VM (build 21.0.5+11-Ubuntu-1ubuntu124.04, mixed mode, sharing)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

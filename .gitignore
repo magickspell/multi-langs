@@ -1,2 +1,12 @@
+# GO
 /golang/tmp
 /golang/tmp/*
+
+# JAVA
+HELP.md
+/java/target/
+!/java/.mvn/wrapper/maven-wrapper.jar
+!/java/**/src/main/**/target/
+!/java/**/src/test/**/target/
+/java/.m2
+
